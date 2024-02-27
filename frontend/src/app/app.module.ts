@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { LoginPageModule } from './login/login.module';
 import { ListItemPageModule } from './list-item/list-item.module';
 import { UsersPageModule } from './users/users.module';
+import { TravelsPageModule } from './travels/travels.module';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { UsersPageModule } from './users/users.module';
     LoginPageModule,
     ListItemPageModule,
     UsersPageModule,
+    TravelsPageModule,
     IonicModule.forRoot(),
     AppRoutingModule
   ],

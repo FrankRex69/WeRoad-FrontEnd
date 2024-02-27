@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="2">
+        <ion-title>PAGE TRAVELS</ion-title>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button expand="block" (click)="openModal()">Create
+          <ion-icon slot="end" name="star"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button (click)="logOut()" color="danger">LogOut</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content>  
+<ion-grid>    
+  <ion-row>
+    <ion-col size="0.5">
+      <div>ID</div>
+    </ion-col>
+    <ion-col size="2">
+      <div>SLUG</div>
+    </ion-col>
+    <ion-col size="4">
+      <div>NAME</div>
+    </ion-col>
+    <ion-col size="2">
+    </ion-col>
+    <ion-col size="2">
+    </ion-col>
+  </ion-row>
+  <ion-row *ngFor="let travels of travels$ | async">
+    <ion-col size="0.5">
+      <div>{{ travels.id }}</div>
+    </ion-col>
+    <ion-col size="2">
+      <div>{{ travels.slug }}</div>
+    </ion-col>
+    <ion-col size="4">
+      <div>{{ travels.name }}</div>
+    </ion-col>
+    <ion-col size="2"> 
+      <ion-button (click)="openModalUpdate(travels)"color="success">Update</ion-button>      
+    </ion-col>
+    <ion-col size="2"> 
+      <ion-button (click)="deleteTravels(travles.id)"color="danger">Delete</ion-button>  
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>
