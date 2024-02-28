@@ -17,7 +17,7 @@ import { TravelsService } from './travels.service';
 })
 export class TravelsPage implements OnInit {
 
-  travlesToBeUpdated: IresponseTravels;
+  travelsToBeUpdated: IresponseTravels;
   isUpdateActivated = false;
 
   travelsToBeCreated: IresponseTravels;
@@ -36,6 +36,23 @@ export class TravelsPage implements OnInit {
     private travelsService: TravelsService,
     private travelsQuery: TravelsQuery,
   ) { }
+
+  async chooseTravel(travels: IresponseTravels) {
+    // const modal = await this.modalController.create({
+    //   component: ListItemModalUpdateComponent,
+    //   componentProps: {
+    //     id: listItem.id,
+    //     campo1: listItem.campo1,
+    //     campo2: listItem.campo2
+    //   }
+    // });
+    // return await modal.present();
+    const credentialLogin = {
+      id: travels.id,
+      slug: travels.slug
+    };
+    console.log(credentialLogin.slug);
+  }
 
   ngOnInit() {
     this.travelsSub = this.travelsQuery.selectAreTravelsLoaded$.pipe(
