@@ -8,6 +8,8 @@ import { IresponseTravels } from '@commons/interfaces/travels.interface';
 import { TravelsState } from './travels-store/travels.store';
 import { TravelsQuery } from './travels-query/travels.query';
 
+import { TravelsService } from './travels.service';
+
 @Component({
   selector: 'app-travels',
   templateUrl: './travels-template-html/travels.page.html',
@@ -31,6 +33,7 @@ export class TravelsPage implements OnInit {
 
 
   constructor(
+    private travelsService: TravelsService,
     private travelsQuery: TravelsQuery,
   ) { }
 
@@ -39,7 +42,7 @@ export class TravelsPage implements OnInit {
       filter(areTravelsLoaded => !areTravelsLoaded),
       switchMap(areTravelsLoaded => {
         if (!areTravelsLoaded) {
-          return this.listItemService.getAllListItems();
+          return this.travelsService.getAllTravels();
         }
       })
     ).subscribe(result => {});

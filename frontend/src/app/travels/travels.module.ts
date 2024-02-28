@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { TravelsPage } from './travels.page';
 
 import { TravelsPageRoutingModule } from './travels-routing.module';
+import { TravelsService } from './travels.service';
 
 
 
@@ -19,6 +20,7 @@ import { TravelsPageRoutingModule } from './travels-routing.module';
     HttpClientModule
   ],
   declarations: [TravelsPage],
+  providers: [TravelsService],
   exports: [TravelsPage],
 })
 export class TravelsPageModule {}
