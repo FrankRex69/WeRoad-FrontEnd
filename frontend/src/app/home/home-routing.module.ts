@@ -4,12 +4,17 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomePage } from './home.page';
 import { ListItemPage } from '../list-item/list-item.page';
 import { UsersPage } from '../users/users.page';
+import { TravelsBuyPage } from '../travels-buy/travels-buy.page';
 
 const routes: Routes = [
   {
     path: '',
     component: HomePage,
     children: [
+      {
+        path: 'travels-buy',
+        component: TravelsBuyPage,
+      },
       {
         path: 'list-item',
         component: ListItemPage,

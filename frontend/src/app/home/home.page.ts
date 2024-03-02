@@ -16,6 +16,10 @@ export class HomePage implements OnInit {
   ngOnInit() {
   }
 
+  purchasedTravels() {
+    this.homeService.purchasedTravels();
+  }
+
   listItem() {
     this.homeService.listItem();
   }

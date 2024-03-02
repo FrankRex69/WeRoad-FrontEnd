@@ -10,6 +10,8 @@ import { TravelsQuery } from './travels-query/travels.query';
 
 import { TravelsService } from './travels.service';
 
+import { TravelsCreateModal } from './travels-create-modal/travels-create-modal.component';
+
 @Component({
   selector: 'app-travels',
   templateUrl: './travels-template-html/travels.page.html',
@@ -35,23 +37,20 @@ export class TravelsPage implements OnInit {
   constructor(
     private travelsService: TravelsService,
     private travelsQuery: TravelsQuery,
+    private modalController: ModalController,
   ) { }
 
-  async chooseTravel(travels: IresponseTravels) {
-    // const modal = await this.modalController.create({
-    //   component: ListItemModalUpdateComponent,
-    //   componentProps: {
-    //     id: listItem.id,
-    //     campo1: listItem.campo1,
-    //     campo2: listItem.campo2
-    //   }
-    // });
-    // return await modal.present();
-    const credentialLogin = {
-      id: travels.id,
-      slug: travels.slug
-    };
-    console.log(credentialLogin.slug);
+
+  // -- Modal
+  async openModal(travels: IresponseTravels) {
+    const modal = await this.modalController.create({
+      component: TravelsCreateModal,
+      componentProps: {
+        travelsid: travels.id,
+        price: travels.price
+      }
+    });
+    return await modal.present();
   }
 
   ngOnInit() {

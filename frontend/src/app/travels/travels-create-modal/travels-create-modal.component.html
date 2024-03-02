@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Create</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="closeModal()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content class="ion-padding">  
+  <form (ngSubmit)="createTravelsBuy(createForm)" #createForm="ngForm">
+  <ion-grid>    
+    <ion-row>
+      <ion-col text-center size="3">Travels id</ion-col>
+      <ion-col text-center size="1">
+        <input
+            type="number"
+            id="travelsid"
+            name="travelsid"
+            class="form-control"
+            ngModel
+            [(ngModel)]="travelsid"
+            readonly
+            style="width: 100px"/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center size="3">Insert email</ion-col>
+      <ion-col text-center>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          class="form-control"
+          helperText="Enter a valid email"
+          errorText="Invalid email"
+          ngModel
+          required
+          email
+          style="width: 300px; text-align: left;"/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center size="3">Seats</ion-col>
+      <ion-col text-center>
+        <input
+        type="number"
+        id="numberseats"
+        name="numberseats"
+        class="form-control"
+        ngModel
+        required
+        (input)="priceTot($event.target.value, price)"
+        style="width: 100px"/>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center size="3">Price</ion-col>
+      <ion-col text-center size="3">
+        {{ price | number }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center size="3">Total Price</ion-col>
+      <ion-col text-center size="3">
+          <input
+            type="number"
+            id="pricetot"
+            name="pricetot"
+            class="form-control"
+            ngModel
+            [(ngModel)]="pricetot"
+            readonly
+            style="width: 100px"/>
+      </ion-col>
+    </ion-row>
+    <ion-button expand="block" [disabled]="createForm.invalid" class="btn btn-success" type="submit">BUY</ion-button>
+  </ion-grid>
+  </form>
+</ion-content>

@@ -11,6 +11,7 @@ import { LoginPageModule } from './login/login.module';
 import { ListItemPageModule } from './list-item/list-item.module';
 import { UsersPageModule } from './users/users.module';
 import { TravelsPageModule } from './travels/travels.module';
+import { TravelsBuyPageModule } from './travels-buy/travels-buy.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { TravelsPageModule } from './travels/travels.module';
     ListItemPageModule,
     UsersPageModule,
     TravelsPageModule,
+    TravelsBuyPageModule,
     IonicModule.forRoot(),
     AppRoutingModule
   ],

@@ -10,6 +10,13 @@ export class HomeService {
     private router: Router
   ) { }
 
+
+  purchasedTravels() {
+    this.router.navigate(['/home/travels-buy'], {
+      skipLocationChange: true,
+    });
+  }
+
   listItem() {
     this.router.navigate(['/home/list-item'], {
       skipLocationChange: true,
