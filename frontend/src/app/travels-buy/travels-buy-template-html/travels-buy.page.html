@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-row>
+      <ion-col size="2">
+        <ion-title>Purchased travels</ion-title>
+      </ion-col>      
+      <ion-col size="2">
+        <ion-button (click)="logOut()" color="danger">LogOut</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+<ion-content>  
+<ion-grid>    
+  <ion-row>
+    <ion-col size="0.5">
+      <div>ID</div>
+    </ion-col>
+    <ion-col size="2">
+      <div>Buy date</div>
+    </ion-col>    
+    <ion-col size="1">
+      <div>TRAVEL ID</div>
+    </ion-col>
+    <ion-col size="2">
+      <div>TOTAL PRICE</div>
+    </ion-col>
+    <ion-col size="3">
+      <div>EMAIL</div>
+    </ion-col>
+    <ion-col size="1">
+      <div>TRAVELS SEAT</div>
+    </ion-col>
+    <ion-col size="2">
+    </ion-col>
+    <ion-col size="2">
+    </ion-col>
+  </ion-row>
+  <ion-row *ngFor="let travelsBuy of travelsBuy$ | async">
+    <ion-col size="0.5">
+      <div>{{ travelsBuy.id }}</div>
+    </ion-col>
+    <ion-col size="2">
+      <div>{{ travelsBuy.createdAt }}</div>
+    </ion-col>    
+    <ion-col size="1">
+      <div>{{ travelsBuy.travelsid }}</div>
+    </ion-col>
+    <ion-col size="2">
+      <div>{{ travelsBuy.pricetot }}</div>
+    </ion-col>
+    <ion-col size="3">
+      <div>{{ travelsBuy.email }}</div>
+    </ion-col>
+    <ion-col size="1">
+      <div>{{ travelsBuy.numberseats }}</div>
+    </ion-col>
+    <ion-col size="2"> 
+      <ion-button (click)="deleteTravelsBuy(travelsBuy.id)"color="danger">Delete</ion-button>  
+    </ion-col>
+  </ion-row>
+</ion-grid>
+</ion-content>

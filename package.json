@@ -1,0 +1,13 @@
+{
+  "name": "weroad-frontend",
+  "version": "1.0.0",
+  "description": "Implement a checkout process for WeRoad users to buy a Travel where:\r - the user can select a travel to book;\r - the user inputs an email and the number of seats to reserve;\r - the user pays the total amount to confirm the booking (FAKE payment step);",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:dev-local-docker": "cd frontend && npm i commons-nestjs-backend-weroad && ionic serve"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

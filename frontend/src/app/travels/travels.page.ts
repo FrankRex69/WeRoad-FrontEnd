@@ -8,6 +8,10 @@ import { IresponseTravels } from '@commons/interfaces/travels.interface';
 import { TravelsState } from './travels-store/travels.store';
 import { TravelsQuery } from './travels-query/travels.query';
 
+import { TravelsService } from './travels.service';
+
+import { TravelsCreateModal } from './travels-create-modal/travels-create-modal.component';
+
 @Component({
   selector: 'app-travels',
   templateUrl: './travels-template-html/travels.page.html',
@@ -15,7 +19,7 @@ import { TravelsQuery } from './travels-query/travels.query';
 })
 export class TravelsPage implements OnInit {
 
-  travlesToBeUpdated: IresponseTravels;
+  travelsToBeUpdated: IresponseTravels;
   isUpdateActivated = false;
 
   travelsToBeCreated: IresponseTravels;
@@ -31,15 +35,30 @@ export class TravelsPage implements OnInit {
 
 
   constructor(
+    private travelsService: TravelsService,
     private travelsQuery: TravelsQuery,
+    private modalController: ModalController,
   ) { }
+
+
+  // -- Modal
+  async openModal(travels: IresponseTravels) {
+    const modal = await this.modalController.create({
+      component: TravelsCreateModal,
+      componentProps: {
+        travelsid: travels.id,
+        price: travels.price
+      }
+    });
+    return await modal.present();
+  }
 
   ngOnInit() {
     this.travelsSub = this.travelsQuery.selectAreTravelsLoaded$.pipe(
       filter(areTravelsLoaded => !areTravelsLoaded),
       switchMap(areTravelsLoaded => {
         if (!areTravelsLoaded) {
-          return this.listItemService.getAllListItems();
+          return this.travelsService.getAllTravels();
         }
       })
     ).subscribe(result => {});

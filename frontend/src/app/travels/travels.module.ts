@@ -4,11 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
-import { TravelsPage } from './travels.page';
-
 import { TravelsPageRoutingModule } from './travels-routing.module';
+import { TravelsPage } from './travels.page';
+import { TravelsService } from './travels.service';
 
-
+import { TravelsCreateModal } from './travels-create-modal/travels-create-modal.component';
 
 @NgModule({
   imports: [
@@ -18,7 +18,8 @@ import { TravelsPageRoutingModule } from './travels-routing.module';
     TravelsPageRoutingModule,
     HttpClientModule
   ],
-  declarations: [TravelsPage],
+  declarations: [TravelsPage, TravelsCreateModal],
+  providers: [TravelsService],
   exports: [TravelsPage],
 })
 export class TravelsPageModule {}

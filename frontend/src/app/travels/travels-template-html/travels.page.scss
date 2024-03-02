@@ -1,10 +1,16 @@
-ion-col {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;  
-    
-    color: black;
-    font-size: small;
-    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+ion-card {
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+ion-card {
+    width: 80%;
+}
+
+ion-button {
+    margin-left: 2%;
+    margin-bottom: 2%;
+}
+
+.layout1 {
+    margin-top: 1%;
 }
