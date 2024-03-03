@@ -45,6 +45,7 @@ export class TravelsPage implements OnInit {
   async openModal(travels: IresponseTravels) {
     const modal = await this.modalController.create({
       component: TravelsCreateModal,
+      cssClass: 'travels-modal-class',
       componentProps: {
         travelsid: travels.id,
         price: travels.price
