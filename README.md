@@ -2,7 +2,6 @@
 ```bash
 # Install package's frontend (in frontend directory)
 $ npm install
-aaa
 ```
 
 ### Start development in local
@@ -20,6 +19,4 @@ http://localhost:8100/travels
 http://localhost:8100/login
 user: weroad
 pass: password
-
-eee
 ```
