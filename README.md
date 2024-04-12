@@ -2,6 +2,7 @@
 ```bash
 # Install package's frontend (in frontend directory)
 $ npm install
+
 ```
 
 ### Start development in local
